@@ -26,5 +26,3 @@ urlpatterns = [
     path('',include('website.urls'))
     #path('blog/',include('blog.urls'))    
 ]
-
-
