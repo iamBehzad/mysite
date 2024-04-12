@@ -1,5 +1,5 @@
 from django.contrib import admin
-from blog.models import Post
+from blog.models import Post, Category
 # Register your models here.
 
 class PostAdmin(admin.ModelAdmin):
@@ -7,10 +7,11 @@ class PostAdmin(admin.ModelAdmin):
     empty_value_display = "-empty-"
     #fields=('title', )
     #exclude('created_date')
-    list_display=('title', 'counted_view', 'status', 'published_date', 'created_date')
-    list_filter=('status', )
+    list_display=('title', 'author', 'counted_view', 'status', 'published_date', 'created_date')
+    list_filter=('status', 'author')
     #prepopulated_fields
     #ordering=['-created_date']
     search_fields=('title','content',)
 
+admin.site.register(Category)
 admin.site.register(Post,PostAdmin)
