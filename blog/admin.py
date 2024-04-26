@@ -9,7 +9,7 @@ class PostAdmin(SummernoteModelAdmin):
     empty_value_display = "-empty-"
     #fields=('title', )
     #exclude('created_date')
-    list_display=('title', 'author', 'counted_view', 'status', 'published_date', 'created_date')
+    list_display=('title', 'author', 'counted_view', 'status','login_require', 'published_date', 'created_date')
     list_filter=('status', 'author')
     #prepopulated_fields
     #ordering=['-created_date']

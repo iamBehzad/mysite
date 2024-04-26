@@ -1,9 +1,11 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from blog.models import Post, Comments
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from blog.forms import CommentForm
 from django.contrib import messages
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 from django.http import HttpResponse
@@ -46,18 +48,20 @@ def blog_single(request, pid):
     post.save()
     next_post = Post.objects.filter(status =1 ,published_date__lte=current_time, id__gt=pid).order_by('pk').first()
     previous_post = Post.objects.filter(status =1 ,published_date__lte=current_time, id__lt=pid).order_by('pk').last()
-    
-    comments = Comments.objects.filter(post=post.id, approved=True).order_by('-created_date')
-    form = CommentForm()
-    context = {
-        'post': post,  
-        'next_post': next_post,
-        'previous_post': previous_post,
-        'comments': comments,
-        'form':form
-        }
-    
-    return render (request, 'blog/blog-single.html', context)
+    if not post.login_require:
+        comments = Comments.objects.filter(post=post.id, approved=True).order_by('-created_date')
+        form = CommentForm()
+        context = {
+            'post': post,  
+            'next_post': next_post,
+            'previous_post': previous_post,
+            'comments': comments,
+            'form':form
+            }
+        
+        return render (request, 'blog/blog-single.html', context)
+    else:
+        return HttpResponseRedirect(reverse ('accounts:login'))
 
 def blog_category(request, cat_name):
     current_time = timezone.now()
