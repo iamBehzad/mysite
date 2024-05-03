@@ -107,10 +107,10 @@ AUTHENTICATION_BACKENDS = [
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'username@gmail.com'
-EMAIL_HOST_PASSWORD = '123456789'
-#EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-#EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_mail")
+EMAIL_HOST_USER = 'the.behzad.abbasi@gmail.com'
+EMAIL_HOST_PASSWORD = 'TahaTaha93'
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_mail")
 
 
 MIDDLEWARE = [
