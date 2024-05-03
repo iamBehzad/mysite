@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -94,6 +95,23 @@ SUMMERNOTE_CONFIG = {
 MULTI_CAPTCHA_ADMIN = {
     'engine': 'simple-captcha',
 }
+
+
+# authentication settings
+AUTHENTICATION_BACKENDS = [
+    'accounts.backends.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+# email settings
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'username@gmail.com'
+EMAIL_HOST_PASSWORD = '123456789'
+#EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+#EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_mail")
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
