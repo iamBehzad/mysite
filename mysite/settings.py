@@ -102,15 +102,15 @@ AUTHENTICATION_BACKENDS = [
     'accounts.backends.EmailOrUsernameModelBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
-# email settings
 
-EMAIL_HOST = 'smtp.gmail.com'
+# reset password by email
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'the.behzad.abbasi@gmail.com'
-EMAIL_HOST_PASSWORD = '*********'
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_mail")
+EMAIL_HOST_PASSWORD = 'ucjwtsebqlcgzkyn'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
 
 
 MIDDLEWARE = [
