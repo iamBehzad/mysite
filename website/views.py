@@ -3,6 +3,10 @@ from django.http import HttpResponse,HttpResponseRedirect
 from website.models import Contact
 from website .forms import ContactForm, NewsletterForm
 from django.contrib import messages
+
+def coming_soon_view(request, *args, **kwargs):
+    return HttpResponse("Coming soon...")
+
 def index_view(request):
     return render (request, 'website/index.html')
 
