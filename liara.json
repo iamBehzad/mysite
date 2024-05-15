@@ -8,11 +8,11 @@
     "timezone": "Asia/Tehran"
     
   },
-  "app": "mysite-alibigdeli",
+  "app": "mysite-behzad",
   "disks": [
     {
-      "name": "static",
-      "mountTo": "static"
+      "name": "mydb",
+      "mountTo": "mydb"
     },
     {
       "name": "media",
