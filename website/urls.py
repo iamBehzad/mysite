@@ -6,8 +6,8 @@ from website.views import *
 app_name= 'website'
 urlpatterns = [
     
-    path('', coming_soon_view, name='coming_soon'),
-    path('<path:path>', coming_soon_view, name='coming_soon'),
+    #path('', coming_soon_view, name='coming_soon'),
+    #path('<path:path>', coming_soon_view, name='coming_soon'),
     
     path('',index_view, name='index'),
     path('about',about_view, name='about'),

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'captcha',
     'blog',
     'accounts',
+    'compressor',
 ]
 
 
@@ -99,6 +100,17 @@ EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
 
+# compressor settings
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+#COMPRESS_URL = str(BASE_DIR / 'static/') 
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -111,6 +123,21 @@ MIDDLEWARE = [
     
 
 ]
+
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR/'static'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR/'media'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "statics",
+]
+
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -175,4 +202,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
 
